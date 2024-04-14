@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting App</title>
+</head>
+
+<body>
+    <h1>Greeting App</h1>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="displayGreeting()">Submit</button>
+    <p id="greetingMessage"></p>
+
+    <script>
+        function displayGreeting() {
+            var name = document.getElementById("nameInput").value;
+            if (name.trim() === "") {
+                alert("Please enter your name");
+            } else {
+                var greetingMessage = "Hello, " + name + "! Welcome to our website.";
+                document.getElementById("greetingMessage").textContent = greetingMessage;
+            }
+        }
+    </script>
+</body>
+
+</html>
