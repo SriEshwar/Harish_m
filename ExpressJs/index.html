@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details Form</title>
+</head>
+
+<body>
+    <form id="userForm" action="/submit" method="POST">
+        <input type="text" name="name" placeholder="Enter your name" required><br>
+        <input type="tel" name="phone" placeholder="Enter your phone number" required><br>
+        <input type="email" name="email" placeholder="Enter your email" required><br>
+        <input type="password" name="password" placeholder="Enter your password" required><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        const form = document.getElementById('userForm');
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const response = await fetch('/submit', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.text();
+            alert(data);
+        };
+    </script>
+</body>
+
+</html>
