@@ -13,30 +13,70 @@ async function connectToMongoDB() {
 
         const db = client.db('aspire')
         const collection = db.collection('employee')
+        console.log('Connected to MongoDB successfully');
         const cursor = collection.find({})
 
-        const insertion = await collection.insertOne({
-            id: 1,
-  firstname: 'Ram',
-  lastname: 'M',
-  gender: 'Male',
-  email: 'ram.m@gmail.com',
-  salary: 20000,
-  department: { name: 'UI/UX' }
-
-        })
-
-        console.log("the record inserted into the colection with "+ insertion.insertedId)
+ 
 
         await cursor.forEach(record=>{
             console.log(record)
         })
-        await client.close()
-        //console.log('Connected to MongoDB successfully');
+        
+        
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
     }
 }
 
+async function insertData(){
+    try {
+        await client.connect();
+        const db = client.db('aspire')
+        const collection = db.collection('employee')
+        await collection.insertOne({ id: 1,
+            firstname: 'Ram',
+            lastname: 'M',
+            gender: 'Male',
+            email: 'ram.m@gmail.com',
+            salary: 20000,
+            department: { name: 'UI/UX' } })    
+        console.log("Record inserted")
+    }catch(error){
+        console.error(error);
+    }
+}
+
+async function updateOne(){
+    try {
+        await client.connect();
+        const db = client.db('aspire')
+        const collection = db.collection('employee')
+        await collection.updateOne({ id: 1}, { $set: { email: "harishm@gmail.com"} })    
+        console.log("Record Updated")
+    }catch(error){
+        console.error(error);
+    }
+}
+
+
+async function deleteMany(){
+    try {
+        await client.connect();
+        const db = client.db('aspire')
+        const collection = db.collection('employee')
+        await collection.deleteMany({ id: 4})    
+        console.log("Record Deleted")
+    }catch(error){
+        console.error(error);
+    }
+}
+
+
+
 // Call the function to connect
 connectToMongoDB();
+//updateOne();
+
+//deleteMany();
+
+
