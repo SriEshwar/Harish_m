@@ -36,7 +36,7 @@ class Account {
     }
 }
 
-// SavingsAccount.java - Subclass
+
 class SavingsAccount extends Account {
     private double interestRate;
 
@@ -52,7 +52,6 @@ class SavingsAccount extends Account {
     }
 }
 
-// CheckingAccount.java - Subclass
 class CheckingAccount extends Account {
     private double overdraftLimit;
 
@@ -71,18 +70,18 @@ class CheckingAccount extends Account {
     }
 }
 
-// Main.java - Test the Implementation
+
 public class Inheritance{
     public static void main(String[] args) {
-        // Creating a savings account
+     
         SavingsAccount savings = new SavingsAccount("SA001", 2.5);
         savings.deposit(1000);
         savings.addInterest();
-        savings.withdraw(2000); // Should fail due to insufficient balance
+        savings.withdraw(2000);
 
-        // Creating a checking account
+   
         CheckingAccount checking = new CheckingAccount("CA001", 500);
         checking.deposit(1000);
-        checking.withdraw(1500); // Should succeed due to overdraft limit
+        checking.withdraw(1500); 
     }
 }

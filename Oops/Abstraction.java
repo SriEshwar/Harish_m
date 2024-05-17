@@ -1,4 +1,4 @@
-// Vehicle.java
+
 import java.util.*;
 abstract class Vehicle {
     private String name;
@@ -17,22 +17,21 @@ abstract class Vehicle {
         return year;
     }
 
-    // Abstract method
     public abstract void startEngine();
 
-    // Concrete method
+    
     public void displayInfo() {
         System.out.println("Vehicle Name: " + name);
         System.out.println("Year: " + year);
     }
 }
 
-// FuelEfficiency.java
+
 interface FuelEfficiency {
     void fuelConsumption();
 }
 
-// Car.java
+
 class Car extends Vehicle implements FuelEfficiency {
     public Car(String name, int year) {
         super(name, year);
@@ -49,7 +48,7 @@ class Car extends Vehicle implements FuelEfficiency {
     }
 }
 
-// Motorcycle.java
+
 class Motorcycle extends Vehicle implements FuelEfficiency {
     public Motorcycle(String name, int year) {
         super(name, year);
@@ -66,7 +65,7 @@ class Motorcycle extends Vehicle implements FuelEfficiency {
     }
 }
 
-// Main.java
+
 public class Abstraction {
     public static void main(String[] args) {
         Vehicle car = new Car("Toyota Camry", 2020);

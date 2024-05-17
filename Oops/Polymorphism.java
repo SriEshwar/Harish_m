@@ -1,4 +1,3 @@
-// Employee.java - Base class
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +19,9 @@ abstract class Employee {
         return hourlyRate;
     }
 
-    // Abstract method to calculate monthly salary
     public abstract double calculateMonthlySalary();
 }
 
-// FullTimeEmployee.java - Subclass
 class FullTimeEmployee extends Employee {
     private double monthlySalary;
 
@@ -39,7 +36,6 @@ class FullTimeEmployee extends Employee {
     }
 }
 
-// PartTimeEmployee.java - Subclass
 class PartTimeEmployee extends Employee {
     private int hoursWorked;
 
@@ -57,7 +53,7 @@ class PartTimeEmployee extends Employee {
 
 
 public class Polymorphism{
-    // Method to calculate total monthly salary of all employees
+    
     public static double calculateTotalMonthlySalary(List<Employee> employees) {
         double totalSalary = 0;
         for (Employee employee : employees) {
@@ -67,16 +63,13 @@ public class Polymorphism{
     }
 
     public static void main(String[] args) {
-        // Creating instances of different employees
         FullTimeEmployee fullTimeEmployee = new FullTimeEmployee("John Doe", 25.0, 4000);
         PartTimeEmployee partTimeEmployee = new PartTimeEmployee("Jane Smith", 15.0, 80);
 
-        // Adding employees to a list
         List<Employee> employees = new ArrayList<>();
         employees.add(fullTimeEmployee);
         employees.add(partTimeEmployee);
 
-        // Calculate total monthly salary of all employees
         double totalMonthlySalary = calculateTotalMonthlySalary(employees);
         System.out.println("Total monthly salary of all employees: $" + totalMonthlySalary);
     }
