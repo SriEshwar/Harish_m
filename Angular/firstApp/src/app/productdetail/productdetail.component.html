@@ -1,0 +1,20 @@
+<p>productdetail works!</p>
+
+<table>
+    <thead>
+        <tr>
+            <td>Title</td>
+        </tr>
+    </thead>
+</table>
+
+
+<!-- product-list.component.html -->
+<div *ngIf="productData">
+    <ul>
+      <li *ngFor="let product of productData">
+        {{ product.title }} - {{ product.price }}
+      </li>
+    </ul>
+  </div>
+  
