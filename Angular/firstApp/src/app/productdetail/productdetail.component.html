@@ -1,20 +1,27 @@
 <p>productdetail works!</p>
 
 <table>
-    <thead>
-        <tr>
-            <td>Title</td>
-        </tr>
-    </thead>
+  <thead>
+    <tr>
+      <td>Title</td>
+      <td>Price</td>
+      <td>Brand</td>
+      <td>Category</td>
+      <td>Images</td>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of productData; trackBy: trackProduct">
+      <td>{{product.title}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.brand}}</td>
+      <td>{{product.category}}</td>
+      <td>
+        <div *ngFor="let image of product.images">
+          <img [src]="image" alt="{{product.title}}" width="100">
+        </div>
+      </td>
+    </tr>
+  </tbody>
 </table>
-
-
-<!-- product-list.component.html -->
-<div *ngIf="productData">
-    <ul>
-      <li *ngFor="let product of productData">
-        {{ product.title }} - {{ product.price }}
-      </li>
-    </ul>
-  </div>
-  
