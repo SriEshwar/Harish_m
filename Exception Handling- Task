@@ -1,0 +1,90 @@
+                                                                     Exception Handling 
+Checked exceptions 
+     1] ClassNotFoundException 
+     2] InterruptedException 
+     3] IOException 
+     4] SQLException 
+      5] FileNotFoundException 
+ 
+ClassNotFoundException 
+ 
+Public class SimpleClassNotFoundException { 
+    Public static void main(String[] args) { 
+        Try { 
+            Class.forName(“com.example.NonExistentClass”); 
+        } catch (ClassNotFoundException e) { 
+            System.err.println(“Class not found: “ + e.getMessage()); 
+        } 
+    } 
+} 
+ 
+FileNotFoundException 
+ 
+Import java.io.File; 
+Import java.io.FileNotFoundException; 
+Import java.util.Scanner; 
+ 
+Public class SimpleFileNotFoundException { 
+    Public static void main(String[] args) { 
+        Try { 
+            File file = new File(“nonexistentfile.txt”); 
+            Scanner scanner = new Scanner(file); 
+        } catch (FileNotFoundException e) { 
+            System.err.println(“File not found: “ + e.getMessage()); 
+        } 
+    } 
+} 
+SQLException 
+Import java.sql.Connection; 
+Import java.sql.DriverManager; 
+Import java.sql.SQLException; 
+Import java.sql.Statement; 
+ 
+Public class SimpleSQLException { 
+    Public static void main(String[] args) { 
+        String url = “mysql://localhost:3306/mydatabase”; 
+        String username = “root”; 
+        String password = “password”; 
+ 
+        Try (Connection connection = DriverManager.getConnection(url, username, password); 
+             Statement statement = connection.createStatement()) { 
+            String sql = “SELECT * FROM nonexistent_table”; 
+            Statement.executeQuery(sql); 
+        } catch (SQLException e) { 
+            System.err.println(“SQL Exception: “ + e.getMessage()); 
+        } 
+    } 
+} 
+IOException 
+Import java.io.BufferedReader; 
+Import java.io.FileReader; 
+Import java.io.IOException; 
+ 
+Public class SimpleIOException { 
+    Public static void main(String[] args) { 
+        Try { 
+            BufferedReader reader = new BufferedReader(new FileReader(“nonexistentfile.txt”)); 
+            String line = reader.readLine(); 
+            While (line != null) { 
+                System.out.println(line); 
+                Line = reader.readLine(); 
+            } 
+            Reader.close(); 
+        } catch (IOException e) { 
+            System.err.println(“IO Exception: “ + e.getMessage()); 
+        } 
+    } 
+} 
+ 
+UnChecked exception 
+ 
+ArithmeticException 
+Public class SimpleArithmeticException { 
+    Public static void main(String[] args) { 
+        Try { 
+            Int result = 10 / 0; // Division by zero 
+        } catch (ArithmeticException e) { 
+            System.err.println(“Arithmetic Exception: “ + e.getMessage()); 
+        } 
+    } 
+}
